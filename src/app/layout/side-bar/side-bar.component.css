@@ -1,0 +1,75 @@
+.scroll-container {
+  overflow-y: scroll;
+  height: 85vh;
+}
+/* style the scrollbar */
+.scroll-container::-webkit-scrollbar {
+  width: 5px;
+  margin-right: -5px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #49aae0;
+  border-radius: 5px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #49aae0;
+}
+
+.menu ul li {
+  margin-bottom: 10px;
+}
+.menu ul li.active > a {
+  background: #48abe033;
+  border-radius: 10px;
+}
+.menu ul li a {
+  color: #fff;
+  display: flex;
+  padding: 10px 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+.menu ul li a .sideBar-icon {
+  position: relative;
+  top: 2px;
+}
+.menu ul li .nested-menu {
+  display: flex;
+  justify-content: space-between;
+}
+.menu ul li .dropdwon {
+  display: none;
+}
+.menu ul li .nested-list {
+  margin-top: 15px;
+  display: none;
+}
+.menu ul li.nested .dropdwon {
+  display: block;
+}
+.menu ul li.active .nested-list {
+  display: block;
+}
+
+.menu ul li.nested-list a {
+  display: block !important;
+}
+
+.menu ul li .nested-list a::before {
+  content: "-";
+  color: #fff;
+  padding-left: 5px;
+}
+.menu ul li a i-feather {
+  transition: 0.3s ease-in-out;
+}
+.menu ul .active a .arrow {
+  transform: rotate(180deg);
+  transition: 0.3s ease-in-out;
+}

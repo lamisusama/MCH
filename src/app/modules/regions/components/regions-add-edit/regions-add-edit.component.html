@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-6">
+        <h3>المناطق</h3>
+      </div>
+      <div class="col-6">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">
+              <i-feather name="settings"></i-feather>
+            </a></li>
+          <li class="breadcrumb-item  px-2">إعدادت الشركة</li>
+          <li class="breadcrumb-item active px-2">المناطق</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="content-page index-page">
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="">
+              مناطق / إنشاء وتعديل
+            </h5>
+
+          </div>
+          <div class="card-body">
+            <form class="theme-form">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h6>
+                    البيانات الاساسية
+                  </h6>
+                </div>
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label class="col-form-label">الكود</label>
+                    <input class="form-control" type="text" placeholder="الكود" formControlName="code">
+
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="col-form-label">الإسم العربي</label>
+                    <input class="form-control" type="text" placeholder="الإسم العربي" formControlName="Region_NameAR">
+                    <!--     <app-control-error-display [control]="getControl('arabicName')">
+                                                    </app-control-error-display>
+                                                  [formGroup]="formGroup"-->
+
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="col-form-label">الإسم الإنجليزي</label>
+                    <input class="form-control" type="text" placeholder="الإسم الإنجليزي" formControlName="Region_NameEN">
+                    <!--    <app-control-error-display [control]="getControl('englishName')">
+                              </app-control-error-display> -->
+                  </div>
+
+                </div>
+
+                <div class="col-md-12">
+                  <div class="mb-3 m-checkbox-inline custom-radio-ml">
+                    <div class="form-check form-check-inline checkbox checkbox-primary">
+                      <input class="form-check-input" id="chb-1" type="checkbox" formControlName="Region_IsDefault">
+
+                      <label class="form-check-label" for="chb-1">افتراضى</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label for="description"> التفاصيل</label>
+                    <textarea formControlName="Region_Notes" class="form-control" placeholder="التفاصيل"></textarea>
+                    <!--         <app-control-error-display [control]="getControl('description')">
+                    </app-control-error-display> -->
+                  </div>>
+                </div>
+
+              </div>
+
+
+
+            </form>
+          </div>
+          <div class="card-footer text-start">
+            <button (click)="save()" class="btn btn-primary ms-2">حفظ</button>
+            <button (click)="backToList()" class="btn btn-light">إلغاء</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Container-fluid Ends-->
+</div>

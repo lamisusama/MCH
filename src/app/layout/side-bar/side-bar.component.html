@@ -1,0 +1,40 @@
+<!-- Page Sidebar Start-->
+<div class="sidebar-wrapper " [class.close_icon]="isOpen">
+  <div>
+    <div class="logo-wrapper">
+      <a href="index.html"><img class="img-fluid for-light" src="./assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="./assets/images/logo/logo_dark.png" alt=""></a>
+      <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+      <div class="toggle-sidebar" (click)="toggleNavBar()"><i-feather name="grid"></i-feather>
+      </div>
+    </div>
+    <div class="logo-icon-wrapper"><a routerLink=""><img class="img-fluid" src="./assets/images/logo/logo-icon.png" alt=""></a></div>
+    <div class="scroll-container">
+      <div class="menu">
+        <ul>
+          <li *ngFor="let item of listItems;let i = index" (click)="isClicked(i)" [class.active]="item.active" [class.nested]="item.children && item.children.length > 0">
+            <a [routerLink]="item.link">
+              <div>
+                <i-feather [name]="item.name" class="sideBar-icon ps-1"></i-feather>
+                {{item.listName}}
+              </div>
+              <i-feather name="chevron-down" class="sideBar-icon dropdwon ps-1"></i-feather>
+            </a>
+
+            <ul>
+              <li *ngFor=" let child of item.children ; let i = index" class="nested-list ">
+                <a>
+                  {{child.listName}}
+
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Page Sidebar Ends-->

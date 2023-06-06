@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-6">
+        <h3>المناطق</h3>
+      </div>
+      <div class="col-6">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">
+              <i-feather name="settings"></i-feather>
+            </a></li>
+          <li class="breadcrumb-item  px-2">إعدادت الشركة</li>
+          <li class="breadcrumb-item active px-2">المناطق</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card">
+
+  <p-table [value]="data" [columns]="cols">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+<!-- <ng-template #grid>
+  <msn-grid [data]="dataList" [columns]="tableColumns" [moduleTitle]="'itemTypes.list' | translate" [actions]="tableActions" [(pageSize)]="fillter.pagination.pageSize!" [totalRecordsLength]="fillter.pagination.totalCount!" [(pageIndex)]="fillter.pagination.pageIndex!"
+            (pageIndexChange)="getAllItemTypes()" (sortChanged)="onSortChanged($event)" (filterChanged)="onFilterChanged($event)"></msn-grid>
+</ng-template>
+<div class="d-flex justify-content-center" *ngIf="this.isLoading; else grid">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div> -->
