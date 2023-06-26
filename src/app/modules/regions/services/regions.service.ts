@@ -6,6 +6,7 @@ import { BaseHttpServiceService } from 'src/app/sharedFeatures/services/base-htt
 import { CurrentUserService } from 'src/app/sharedFeatures/services/current-user.service';
 import { BaseFilter } from 'src/app/sharedFeatures/models/base-filter.model';
 import { TranslateService } from '@ngx-translate/core';
+import { AddEditRegionsViewModel } from '../models/AddEdit-Regions.Model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,16 @@ export class RegionsService extends BaseHttpServiceService {
     // return this.getData<any>(url);
     //return this.http.get(url);
   }
+  AddRegions(model: AddEditRegionsViewModel): Observable<boolean> {
+    let url: string = `${this.baseUrl}/CompanySetting/AddRegion`;
+    return this.postData<any>(url, model);
+  }
+  Update(model: AddEditRegionsViewModel): Observable<boolean> {
+    let url: string = `${this.baseUrl}/CompanySetting/UpdRegion`;
+    return this.postData<any>(url, model);
+  }
+
+
 }
 
 /* export class RegionsService extends BaseHttpServiceService {
@@ -31,14 +42,6 @@ export class RegionsService extends BaseHttpServiceService {
     super(http, currentUserService);
   }
 
-  AddRegions(model: AddEditRegionsViewModel): Observable<boolean> {
-    let url: string = `${this.baseUrl}/item-type/add`;
-    return this.postData<boolean>(url, model);
-  }
-  Update(model: AddEditRegionsViewModel): Observable<boolean> {
-    let url: string = `${this.baseUrl}/item-type/update`;
-    return this.postData<boolean>(url, model);
-  }
 
   getByID(id: any): Observable<AddEditRegionsViewModel> {
     let url: string = `${this.baseUrl}/item-type/getById/${id}`;

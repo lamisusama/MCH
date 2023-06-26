@@ -1,0 +1,10 @@
+:host ::ng-deep .p-datatable .p-datatable-thead>tr>th {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+:host ::ng-deep .p-datatable th,
+:host ::ng-deep .p-datatable td {
+  text-align: right !important;
+  font-family: "Noto Kufi Arabic", sans-serif !important;
+}

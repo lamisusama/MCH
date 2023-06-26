@@ -34,16 +34,18 @@ export class RegionsListComponent implements OnInit {
     private router: Router,
     private RegionsService: RegionsService,
     private gaurd: AuthGuard // private dynamicDialogService: DynamicDialogService, // private notificationService: NotificationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllRegions();
 
     this.cols = [
-      { field: 'Region_Code', header: 'Region Code' },
-      { field: 'Region_Name1', header: 'Region_Name1' },
-      { field: 'Region_Name2', header: 'Region_Name2' },
+      { field: 'Region_Code', header: 'كود المنطقة' },
+      { field: 'Region_Name1', header: 'الإسم' },
+      { field: 'Region_Notes', header: 'الملاحظات' },
+      { field: 'Region_IsDefault', header: 'افتراضي' },
     ];
+
   }
 
   getAllRegions(): void {
@@ -52,5 +54,5 @@ export class RegionsListComponent implements OnInit {
       this.regions = res.Data.Data || [];
     });
   }
-  setPageTitle(): void {}
+  setPageTitle(): void { }
 }

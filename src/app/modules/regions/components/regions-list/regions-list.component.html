@@ -15,29 +15,45 @@
       </div>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header">
+      <h5 class=""> قطع الغيار </h5>
+      <div class="actions">
+        <button class="btn btn-primary sm-btn" routerLink="/regions/create"><i-feather name="file" class="icon-15"></i-feather> انشاء جديد</button>
+        <div class="dropdown-basic me-3">
+          <div class="dropdown">
+            <div class="btn-group mb-0">
+              <button class="dropbtn btn-third" type="button" title="">إجرائات <i-feather name="chevron-down" class="icon-15"></i-feather></button>
+              <div class="dropdown-content">
+                <a href="#" data-bs-original-title="" title="">
+                  <i-feather name="trash-2" class="icon-15 text-danger"></i-feather> حذف </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p-table [value]="regions" [columns]="cols" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns"> {{col.header}} </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns"> {{rowData[col.field]}} </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="flex align-items-center justify-content-between font-kufi">
+            <p class="font-kufi"> يوجد {{regions ? regions.length : 0 }} عناصر </p>
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
 </div>
-<div class="card">
-
-  <p-table [value]="regions" [columns]="cols">
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns">
-          {{col.header}}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-      <tr>
-        <td *ngFor="let col of columns">
-          {{rowData[col.field]}}
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-
-</div>
-
-
 <!-- <ng-template #grid>
   <msn-grid [data]="dataList" [columns]="tableColumns" [moduleTitle]="'itemTypes.list' | translate" [actions]="tableActions" [(pageSize)]="fillter.pagination.pageSize!" [totalRecordsLength]="fillter.pagination.totalCount!" [(pageIndex)]="fillter.pagination.pageIndex!"
             (pageIndexChange)="getAllItemTypes()" (sortChanged)="onSortChanged($event)" (filterChanged)="onFilterChanged($event)"></msn-grid>

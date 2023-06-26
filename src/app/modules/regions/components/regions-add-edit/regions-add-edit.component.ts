@@ -1,3 +1,4 @@
+import { NotificationService } from 'src/app/sharedFeatures/services/notification.service';
 import { RegionsService } from './../../services/regions.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -18,8 +19,9 @@ export class RegionsAddEditComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private RegionsService: RegionsService
-  ) {}
+    private RegionsService: RegionsService,
+    private notificationService: NotificationService,
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -63,26 +65,35 @@ export class RegionsAddEditComponent implements OnInit {
     this.router.navigate(['/regions/list']);
   }
   save() {
-    /*     this.formGroup.markAllAsTouched();
+
+    this.formGroup.markAllAsTouched();
     if (this.formGroup.invalid) return;
+    debugger
     this.collectModel();
-    if (this.model.parentID == null) {
-      this.RegionsService.AddItemType(this.model).subscribe((result) => {
-        this.notificationService.showSuccessTranslated(
-          '',
-          'Dataset.dataSavedSuccessfuly'
-        );
-        this.router.navigate(['/RegionsService/list']);
-      });
-    } else {
-      this.RegionsService.Update(this.model).subscribe((result) => {
-        this.notificationService.showSuccessTranslated(
-          '',
-          'Dataset.dataUpdatedSuccessfuly'
-        );
-        this.router.navigate(['/RegionsService/list']);
-      });
-    } */
+    debugger
+    this.RegionsService.AddRegions(this.model).subscribe((result) => {
+      this.router.navigate(['/Regions/list']);
+    });
+    debugger
+
+
+    /*     if (this.model.Region_NameAR == null) {
+          this.RegionsService.AddRegions(this.model).subscribe((result) => {
+            this.notificationService.showSuccessTranslated(
+              '',
+              'Dataset.dataSavedSuccessfuly'
+            );
+            this.router.navigate(['/RegionsService/list']);
+          });
+        } else {
+          this.RegionsService.Update(this.model).subscribe((result) => {
+            this.notificationService.showSuccessTranslated(
+              '',
+              'Dataset.dataUpdatedSuccessfuly'
+            );
+            this.router.navigate(['/RegionsService/list']);
+          });
+        } */
   }
   collectModel() {
     this.model.Region_NameAR = this.formGroup.value.Region_NameAR;

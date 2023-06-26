@@ -16,47 +16,36 @@
     </div>
   </div>
 </div>
-
-
 <div class="content-page index-page">
   <div class="container-fluid ">
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h5 class="">
-              مناطق / إنشاء وتعديل
-            </h5>
-
+            <h5 class=""> مناطق / إنشاء وتعديل </h5>
           </div>
           <div class="card-body">
-            <form class="theme-form">
 
+            <form class="theme-form" [formGroup]="formGroup">
               <div class="row">
                 <div class="col-md-12">
-                  <h6>
-                    البيانات الاساسية
-                  </h6>
+                  <h6> البيانات الاساسية </h6>
                 </div>
                 <div class="col-md-12">
                   <div class="mb-3">
                     <label class="col-form-label">الكود</label>
                     <input class="form-control" type="text" placeholder="الكود" formControlName="code">
-
                   </div>
                 </div>
-
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label class="col-form-label">الإسم العربي</label>
                     <input class="form-control" type="text" placeholder="الإسم العربي" formControlName="Region_NameAR">
                     <!--     <app-control-error-display [control]="getControl('arabicName')">
                                                     </app-control-error-display>
-                                                  [formGroup]="formGroup"-->
-
+                                                  -->
                   </div>
                 </div>
-
                 <div class="col-md-6">
                   <div class="mb-3">
                     <label class="col-form-label">الإسم الإنجليزي</label>
@@ -64,14 +53,11 @@
                     <!--    <app-control-error-display [control]="getControl('englishName')">
                               </app-control-error-display> -->
                   </div>
-
                 </div>
-
                 <div class="col-md-12">
                   <div class="mb-3 m-checkbox-inline custom-radio-ml">
                     <div class="form-check form-check-inline checkbox checkbox-primary">
                       <input class="form-check-input" id="chb-1" type="checkbox" formControlName="Region_IsDefault">
-
                       <label class="form-check-label" for="chb-1">افتراضى</label>
                     </div>
                   </div>
@@ -82,13 +68,9 @@
                     <textarea formControlName="Region_Notes" class="form-control" placeholder="التفاصيل"></textarea>
                     <!--         <app-control-error-display [control]="getControl('description')">
                     </app-control-error-display> -->
-                  </div>>
+                  </div>
                 </div>
-
               </div>
-
-
-
             </form>
           </div>
           <div class="card-footer text-start">

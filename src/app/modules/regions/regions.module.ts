@@ -6,6 +6,7 @@ import { RegionsDetailsComponent } from './components/regions-details/regions-de
 import { RegionsRoutingModule } from './regions-routing.module';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { TableModule } from 'primeng/table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { TableModule } from 'primeng/table';
     RegionsListComponent,
     RegionsDetailsComponent,
   ],
-  imports: [CommonModule, RegionsRoutingModule, IconsModule, TableModule],
+  imports: [CommonModule, RegionsRoutingModule, IconsModule, TableModule,FormsModule,
+    ReactiveFormsModule],
 })
 export class RegionsModule {}

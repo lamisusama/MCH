@@ -19,6 +19,8 @@ import {
   Layers,
   Settings,
   PieChart,
+  Trash2,
+  File,
 } from 'angular-feather/icons';
 
 const icons = {
@@ -39,10 +41,12 @@ const icons = {
   Layers,
   Settings,
   PieChart,
+  Trash2,
+  File,
 };
 
 @NgModule({
   imports: [FeatherModule.pick(icons)],
   exports: [FeatherModule],
 })
-export class IconsModule {}
+export class IconsModule { }
