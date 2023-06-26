@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegionsService } from '../../services/regions.service';
-import { PageTitleService } from 'src/app/sharedFeatures/services/page-title.service';
+
 import { BaseFilter } from 'src/app/sharedFeatures/models/base-filter.model';
 
 import { AddEditRegionsViewModel } from '../../models/AddEdit-Regions.Model';
@@ -12,6 +12,10 @@ import { TableModule } from 'primeng/table';
 import { ITableHeader } from 'src/app/sharedFeatures/models/itable-header';
 import { TableHeaderType } from 'src/app/sharedFeatures/enum/table/table-header-type';
 import { TableViewMood } from 'src/app/sharedFeatures/enum/table/table-view-mode';
+import { NotificationService } from 'src/app/sharedFeatures/services/notification.service';
+import { AuthGuard } from 'src/app/sharedFeatures/services/auth-guard.service';
+import { DynamicDialogService } from 'src/app/sharedFeatures/services/dynamic-dialog/dynamic-dialog.service';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-regions-list',
@@ -25,26 +29,27 @@ export class RegionsListComponent implements OnInit {
   tableColumns: ITableHeader[] = [];
   tableActions: MenuItem[] = [];
   fillter: BaseFilter = new BaseFilter();
-
+  dynamicDialogRef: DynamicDialogRef;
   constructor(
     private router: Router,
     private RegionsService: RegionsService,
-    private pageTitle: PageTitleService
+    private gaurd: AuthGuard // private dynamicDialogService: DynamicDialogService, // private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
     this.getAllRegions();
 
     this.cols = [
-      { field: 'name', header: 'Name' },
-      { field: 'age', header: 'Age' },
-      { field: 'email', header: 'Email' },
+      { field: 'Region_Code', header: 'Region Code' },
+      { field: 'Region_Name1', header: 'Region_Name1' },
+      { field: 'Region_Name2', header: 'Region_Name2' },
     ];
   }
 
   getAllRegions(): void {
-    this.RegionsService.getAllRegions().subscribe((res) => {
-      this.regions = res.collection || [];
+    this.RegionsService.getAllRegions(this.fillter).subscribe((res) => {
+      debugger;
+      this.regions = res.Data.Data || [];
     });
   }
   setPageTitle(): void {}

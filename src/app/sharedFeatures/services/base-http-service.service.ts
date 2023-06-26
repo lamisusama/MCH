@@ -4,6 +4,7 @@ import { Observable, catchError, tap } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
 import { UserLoggedIn } from '../models/user-login.model';
 import { CurrentUserService } from './current-user.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class BaseHttpServiceService {
   User: UserLoggedIn | undefined;
   constructor(
     private _http: HttpClient,
+    private _translateService: TranslateService,
     private _currentUserService: CurrentUserService
   ) {}
 
@@ -33,7 +35,8 @@ export class BaseHttpServiceService {
           'content-type': 'application/json',
           /*       language: currentLang, */
           'Access-Control-Allow-Origin': '*',
-          Authorization: this.User.token_type + ' ' + this.User.access_token,
+          Authorization:
+            /*  this.User.token_type + ' ' + */ this.User.Data.Access_Token,
         }),
       };
     } else {

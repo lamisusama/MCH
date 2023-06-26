@@ -1,15 +1,19 @@
 export interface UserLoggedIn {
-  access_token: string;
-  email: string;
-  nameAr: string;
-  nameEn: string;
-  name: string;
-  id: any;
-  permissions: number[];
-  token_type: string;
-  userName: string;
-  isFirstTimeLogin: boolean;
+  Status: string;
+  Error_AR: string;
+  Error_EN: string;
+  Error_Code: string;
+  RESULT_CODE: string;
+  Data: UserDataLoggedIn;
+}
 
-  profileImage: string;
-  roleName: string;
+export interface UserDataLoggedIn {
+  User_ID: any;
+  User_LoginName: string;
+  User_NameAr: string;
+  User_NameEn: string;
+  Access_Token: string;
+  Refresh_Token: string;
+  UserBranches: [];
+  CompanyData: any;
 }

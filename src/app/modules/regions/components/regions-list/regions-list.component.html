@@ -18,7 +18,7 @@
 </div>
 <div class="card">
 
-  <p-table [value]="data" [columns]="cols">
+  <p-table [value]="regions" [columns]="cols">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns">
@@ -36,6 +36,8 @@
   </p-table>
 
 </div>
+
+
 <!-- <ng-template #grid>
   <msn-grid [data]="dataList" [columns]="tableColumns" [moduleTitle]="'itemTypes.list' | translate" [actions]="tableActions" [(pageSize)]="fillter.pagination.pageSize!" [totalRecordsLength]="fillter.pagination.totalCount!" [(pageIndex)]="fillter.pagination.pageIndex!"
             (pageIndexChange)="getAllItemTypes()" (sortChanged)="onSortChanged($event)" (filterChanged)="onFilterChanged($event)"></msn-grid>

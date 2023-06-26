@@ -10,6 +10,16 @@ import { NavBarComponent } from './layout/nav-bar/nav-bar/nav-bar.component';
 import { SideBarComponent } from './layout/side-bar/side-bar.component';
 import { AssetsComponent } from './components/assets/assets.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TableModule } from 'primeng/table';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoginComponent } from 'src/app/modules/users/components/login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,11 +27,39 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FooterComponent,
     NavBarComponent,
     SideBarComponent,
+    LoginComponent,
     AssetsComponent,
     DashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, IconsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    IconsModule,
+    TableModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      easeTime: 500,
+      enableHtml: true,
+      progressBar: true,
+      progressAnimation: 'increasing',
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

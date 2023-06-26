@@ -23,7 +23,7 @@ export class CurrentUserService {
     let result: string;
     let user = this.getCurrentUser();
     if (user) {
-      let token = jwt_decode.default(user.access_token) as any;
+      let token = jwt_decode.default(user.Data.Access_Token) as any;
       if (token) {
         return token.unique_name;
       }
@@ -41,7 +41,7 @@ export class CurrentUserService {
 
   getToken(): any {
     let user = this.getCurrentUser();
-    if (user) return user.access_token;
+    if (user) return user.Data.Access_Token;
   }
 
   private currentUser: string = 'currentUser';

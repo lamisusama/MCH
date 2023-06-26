@@ -5,6 +5,7 @@ import { RegionsListComponent } from './components/regions-list/regions-list.com
 import { RegionsDetailsComponent } from './components/regions-details/regions-details.component';
 import { RegionsRoutingModule } from './regions-routing.module';
 import { IconsModule } from 'src/app/icons/icons.module';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,6 @@ import { IconsModule } from 'src/app/icons/icons.module';
     RegionsListComponent,
     RegionsDetailsComponent,
   ],
-  imports: [CommonModule, RegionsRoutingModule, IconsModule],
+  imports: [CommonModule, RegionsRoutingModule, IconsModule, TableModule],
 })
-export class RegionModule {}
+export class RegionsModule {}

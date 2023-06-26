@@ -3,6 +3,6 @@ export const environment = {
   ReaderAPIUrl: '',
 
   //test
-  APIUrl: 'http://41.38.102.53:4422',
+  APIUrl: 'https://mch.al7osamerp.com',
   ReportUrl: '',
 };
