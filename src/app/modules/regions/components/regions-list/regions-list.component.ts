@@ -13,7 +13,6 @@ import { ITableHeader } from 'src/app/sharedFeatures/models/itable-header';
 import { TableHeaderType } from 'src/app/sharedFeatures/enum/table/table-header-type';
 import { TableViewMood } from 'src/app/sharedFeatures/enum/table/table-view-mode';
 import { NotificationService } from 'src/app/sharedFeatures/services/notification.service';
-import { AuthGuard } from 'src/app/sharedFeatures/services/auth-guard.service';
 import { DynamicDialogService } from 'src/app/sharedFeatures/services/dynamic-dialog/dynamic-dialog.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
@@ -33,7 +32,7 @@ export class RegionsListComponent implements OnInit {
   constructor(
     private router: Router,
     private RegionsService: RegionsService,
-    private gaurd: AuthGuard // private dynamicDialogService: DynamicDialogService, // private notificationService: NotificationService
+    // private dynamicDialogService: DynamicDialogService, // private notificationService: NotificationService
   ) { }
 
   ngOnInit() {

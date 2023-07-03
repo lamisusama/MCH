@@ -17,6 +17,13 @@ export class SideBarComponent {
       children: [],
     },
     {
+      listName: 'المناطق',
+      link: `/regions`,
+      name: 'settings',
+      active: false,
+      children: [],
+    },
+    {
       listName: 'ملف',
       name: 'file-text',
       active: false,

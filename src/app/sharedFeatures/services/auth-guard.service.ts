@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
   ActivatedRoute,
+  CanActivateFn,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as jwt_decode from 'jwt-decode';
-import { UserLoggedIn } from '../models/user-login.model';
+import { UserDataLoggedIn, UserLoggedIn } from '../models/user-login.model';
 import { CurrentUserService } from './current-user.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+ class AuthGuardC {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -35,7 +36,7 @@ export class AuthGuard implements CanActivate {
         let permissions: [] = [];
         debugger;
         if (this.User) {
-          let token = jwt_decode.default(this.User.Data.Access_Token) as any;
+          let token = jwt_decode.default(this.User.Access_Token) as any;
           // let token11 = jwt_decode.default(this.User.Data.Refresh_Token) as any;
           if (token) {
             permissions = token;
@@ -78,7 +79,7 @@ export class AuthGuard implements CanActivate {
         let permissions: [] = [];
 
         if (this.User) {
-          let token = jwt_decode.default(this.User.Data.Access_Token) as any;
+          let token = jwt_decode.default(this.User.Access_Token) as any;
           if (token) {
             permissions = token;
             // permissions = token.permissions.split(',');
@@ -115,7 +116,7 @@ export class AuthGuard implements CanActivate {
       let permissions: [] = [];
 
       if (this.User) {
-        let token = jwt_decode.default(this.User.Data.Access_Token) as any;
+        let token = jwt_decode.default(this.User.Access_Token) as any;
         if (token) {
           permissions = token;
           // permissions = token.permissions.split(',');
@@ -151,7 +152,7 @@ export class AuthGuard implements CanActivate {
       let permissions: [] = [];
 
       if (this.User) {
-        let token = jwt_decode.default(this.User.Data.Access_Token) as any;
+        let token = jwt_decode.default(this.User.Access_Token) as any;
         if (token) {
           permissions = token;
           // permissions = token.permissions.split(',');
@@ -180,5 +181,8 @@ export class AuthGuard implements CanActivate {
   }
 
   private currentUser: string = 'currentUser';
-  User: UserLoggedIn | undefined;
+  User: UserDataLoggedIn | undefined;
+  
 }
+export const AuthGuard: CanActivateFn =(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean =>
+{  return inject(AuthGuardC).canActivate(next,state);}

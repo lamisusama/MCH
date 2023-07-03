@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
   CanActivate,
+  CanActivateFn,
   Router,
   RouterStateSnapshot,
   UrlTree,
@@ -15,7 +16,7 @@ import { UserLoggedIn } from '../models/user-login.model';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginActivate implements CanActivate {
+ class LoginActivateC  {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -42,4 +43,8 @@ export class LoginActivate implements CanActivate {
   }
 
   private currentUser: string = 'currentUser';
+
+ 
 }
+export const LoginActivate: CanActivateFn =(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean =>
+{  return inject(LoginActivateC).canActivate(next,state);}

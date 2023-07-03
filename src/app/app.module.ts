@@ -20,6 +20,7 @@ import { LoginComponent } from 'src/app/modules/users/components/login/login.com
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainContentComponent } from './layout/main-content/main-content.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     AssetsComponent,
     DashboardComponent,
+    MainContentComponent,
   ],
   imports: [
     BrowserModule,
