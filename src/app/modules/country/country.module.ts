@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { CountryRoutingModule } from './country-routing.module';
+import { SharedComponentsModule } from 'src/app/applicationFeatures/shared-components/shared-components.module';
 
 
 
@@ -16,7 +17,7 @@ import { CountryRoutingModule } from './country-routing.module';
   ],
   imports: [
     CommonModule, CountryRoutingModule, IconsModule, TableModule,FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, SharedComponentsModule
   ]
 })
 export class CountryModule { }

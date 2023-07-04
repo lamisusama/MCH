@@ -17,11 +17,21 @@ export class SideBarComponent {
       children: [],
     },
     {
-      listName: 'المناطق',
-      link: `/regions`,
+      listName: 'إعدادات الشركة',
       name: 'settings',
       active: false,
-      children: [],
+      children: [
+        {
+          listName: 'المناطق',
+          link: '/regions',
+          children: [],
+        },
+        {
+          listName: 'الدول',
+          link: '/country',
+          children: [],
+        },
+      ],
     },
     {
       listName: 'ملف',

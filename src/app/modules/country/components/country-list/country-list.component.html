@@ -1,1 +1,57 @@
-<p>country-list works!</p>
+<div class="container-fluid">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-6">
+          <h3>الدول</h3>
+        </div>
+        <div class="col-6">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">
+                <i-feather name="settings"></i-feather>
+              </a></li>
+            <li class="breadcrumb-item  px-2">إعدادت الشركة</li>
+            <li class="breadcrumb-item active px-2">الدول</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+          <h5 class=""> </h5>
+          <div class="actions">
+            <button class="btn btn-primary sm-btn" routerLink="/regions/create"><i-feather name="file" class="icon-15"></i-feather> انشاء جديد</button>
+            <div class="dropdown-basic me-3">
+              <div class="dropdown">
+                <div class="btn-group mb-0">
+                  <button class="dropbtn btn-third" type="button" title="">إجرائات <i-feather name="chevron-down" class="icon-15"></i-feather></button>
+                  <div class="dropdown-content">
+                    <a href="#" data-bs-original-title="" title="">
+                      <i-feather name="trash-2" class="icon-15 text-danger"></i-feather> حذف </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <ng-template #grid>
+                <msn-grid
+                  [data]="dataList"
+                  [columns]="tableColumns"
+                  [moduleTitle]="'itemTypes.list' "
+                  [actions]="tableActions"
+                  [(pageSize)]="fillter.pagination.pageSize!"
+                  [totalRecordsLength]="fillter.pagination.totalCount!"
+                  [(pageIndex)]="fillter.pagination.pageIndex!"
+                  (pageIndexChange)="getAllCountries()"
+                  (sortChanged)="onSortChanged($event)"
+                  (filterChanged)="onFilterChanged($event)"></msn-grid>
+              </ng-template>
+              <div class="d-flex justify-content-center" *ngIf="this.isLoading; else grid">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+        </div>
+      </div>
+</div>

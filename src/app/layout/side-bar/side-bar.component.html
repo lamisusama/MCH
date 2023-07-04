@@ -22,7 +22,7 @@
 
             <ul>
               <li *ngFor=" let child of item.children ; let i = index" class="nested-list ">
-                <a>
+                <a [routerLink]="child.link">
                   {{child.listName}}
 
                 </a>
