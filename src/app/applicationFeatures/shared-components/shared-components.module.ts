@@ -22,6 +22,7 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
 import { EnumFilterComponent } from './grid/enum-filter/enum-filter.component';
 import { GroupByMenuComponent } from './grid/group-by-menu/group-by-menu.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 /** <--- Prime Ng ---> */
 
@@ -43,7 +44,7 @@ const PRIM_MODULES = [
 ];
 
 @NgModule({
-  declarations: [GridComponent, EnumFilterComponent, GroupByMenuComponent],
+  declarations: [GridComponent, EnumFilterComponent, GroupByMenuComponent, DeleteModalComponent],
   imports: [
     CommonModule,
     TranslateModule,
