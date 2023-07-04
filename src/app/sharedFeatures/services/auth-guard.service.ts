@@ -15,7 +15,7 @@ import { CurrentUserService } from './current-user.service';
 @Injectable({
   providedIn: 'root',
 })
- class AuthGuardC {
+class AuthGuardC {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -34,7 +34,7 @@ import { CurrentUserService } from './current-user.service';
         this.User = JSON.parse(userString);
 
         let permissions: [] = [];
-        debugger;
+
         if (this.User) {
           let token = jwt_decode.default(this.User.Access_Token) as any;
           // let token11 = jwt_decode.default(this.User.Data.Refresh_Token) as any;
@@ -182,7 +182,10 @@ import { CurrentUserService } from './current-user.service';
 
   private currentUser: string = 'currentUser';
   User: UserDataLoggedIn | undefined;
-  
 }
-export const AuthGuard: CanActivateFn =(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean =>
-{  return inject(AuthGuardC).canActivate(next,state);}
+export const AuthGuard: CanActivateFn = (
+  next: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<boolean> | Promise<boolean> | boolean => {
+  return inject(AuthGuardC).canActivate(next, state);
+};

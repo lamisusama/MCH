@@ -20,8 +20,8 @@ export class RegionsAddEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private RegionsService: RegionsService,
-    private notificationService: NotificationService,
-  ) { }
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -32,7 +32,7 @@ export class RegionsAddEditComponent implements OnInit {
       Region_NameAR: [null, [Validators.required]],
       Region_NameEN: [null, [Validators.required]],
       Region_Notes: [null, []],
-      Region_IsDefault: [null, []],
+      Region_IsDefault: [false, []],
     });
   }
   bindModelToForm() {
@@ -65,17 +65,16 @@ export class RegionsAddEditComponent implements OnInit {
     this.router.navigate(['/regions/list']);
   }
   save() {
-
     this.formGroup.markAllAsTouched();
     if (this.formGroup.invalid) return;
-    debugger
+    debugger;
     this.collectModel();
-    debugger
+    debugger;
     this.RegionsService.AddRegions(this.model).subscribe((result) => {
-      this.router.navigate(['/Regions/list']);
+      debugger;
+      this.router.navigate(['/regions/list']);
     });
-    debugger
-
+    debugger;
 
     /*     if (this.model.Region_NameAR == null) {
           this.RegionsService.AddRegions(this.model).subscribe((result) => {

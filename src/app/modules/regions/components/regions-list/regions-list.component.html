@@ -33,11 +33,19 @@
         </div>
       </div>
     </div>
+    <!-- [columns]="cols" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" -->
     <div class="card-body">
-      <p-table [value]="regions" [columns]="cols" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
+      <p-table [value]="regions" styleClass="p-datatable-striped" [columns]="tableColumns" [paginator]="true" [rows]="pageSize" [rowsPerPageOptions]="[10,25,50]" [responsive]="false" [totalRecords]="totalCount!" [lazy]="true" [currentPageReportTemplate]="currentPageReportTemplate"
+               [showCurrentPageReport]="true" [selectionPageOnly]="true" [scrollable]="true" [sortMode]="'multiple'" [dataKey]="recordKey" [(selection)]="selectedRecords" (onFilter)="onFilterChange($event)" (onPage)="onPageChange($event)" (onSort)="onSort($event)"
+               (selectionChange)="onSelectionChange($event)" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header" let-columns>
           <tr>
-            <th *ngFor="let col of columns"> {{col.header}} </th>
+            <th *ngFor="let col of columns"> {{col.name}} </th>
+
+            <th class="action-header justify-content-center action">
+              الإجراءات
+            </th>
+
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -45,11 +53,23 @@
             <td *ngFor="let col of columns"> {{rowData[col.field]}} </td>
           </tr>
         </ng-template>
-        <ng-template pTemplate="summary">
+
+
+        <!-- <ng-template pTemplate="paginatorleft" let-state>
+          {{state.first}}
+          <button type="button" pButton icon="pi-refresh"></button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+          <button type="button" pButton icon="pi-cloud-upload"></button>
+        </ng-template>
+        <ng-template let-item pTemplate="paginatordropdownitem">
+          {{item.value}} - per page
+        </ng-template> -->
+        <!-- <ng-template pTemplate="summary">
           <div class="flex align-items-center justify-content-between font-kufi">
             <p class="font-kufi"> يوجد {{regions ? regions.length : 0 }} عناصر </p>
           </div>
-        </ng-template>
+        </ng-template> -->
       </p-table>
     </div>
   </div>

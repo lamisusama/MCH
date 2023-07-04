@@ -35,8 +35,10 @@ export class BaseHttpServiceService {
           'content-type': 'application/json',
           /*       language: currentLang, */
           'Access-Control-Allow-Origin': '*',
-          Authorization:
-            /*  this.User.token_type + ' ' + */ this.User.Data.Access_Token,
+          /*  Authorization:
+               this.User.Data.Access_Token, */
+
+          Authorization: `Bearer ${this.User?.Data.Access_Token}`,
         }),
       };
     } else {
@@ -109,6 +111,7 @@ export class BaseHttpServiceService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       if (error.status == 401) {
+        debugger;
         this._currentUserService.logOut();
         return new Observable();
       } else {

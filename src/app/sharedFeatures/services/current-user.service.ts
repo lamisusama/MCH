@@ -32,6 +32,7 @@ export class CurrentUserService {
   }
 
   logOut(showAuthError: boolean = false) {
+    debugger;
     localStorage.removeItem(this.currentUser);
     if (showAuthError) {
       // this.notificationService.showErrorTranslated('error.shared.operationFailed','');

@@ -16,13 +16,12 @@ import { UserLoggedIn } from '../models/user-login.model';
 @Injectable({
   providedIn: 'root',
 })
- class LoginActivateC  {
+class LoginActivateC {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private currentUserService: CurrentUserService
-  ) //  private notificationService: NotificationService
-  {}
+    private currentUserService: CurrentUserService //  private notificationService: NotificationService
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -43,8 +42,10 @@ import { UserLoggedIn } from '../models/user-login.model';
   }
 
   private currentUser: string = 'currentUser';
-
- 
 }
-export const LoginActivate: CanActivateFn =(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean =>
-{  return inject(LoginActivateC).canActivate(next,state);}
+export const LoginActivate: CanActivateFn = (
+  next: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<boolean> | Promise<boolean> | boolean => {
+  return inject(LoginActivateC).canActivate(next, state);
+};
