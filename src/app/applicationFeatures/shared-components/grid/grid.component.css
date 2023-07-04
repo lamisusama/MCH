@@ -1,0 +1,90 @@
+::ng-deep .p-dropdown-label,
+::ng-deep .p-dropdown,
+::ng-deep .p-multiselect,
+::ng-deep .p-multiselect-label-container {
+  width: 100%;
+}
+::ng-deep .p-datatable.p-datatable-gridlines th,
+::ng-deep .p-datatable.p-datatable-gridlines td {
+  min-width: 200px;
+  flex-grow: unset !important;
+  flex-shrink: unset !important;
+  flex-basis: unset !important;
+  text-align: center !important;
+}
+::ng-deep .p-datatable.p-datatable-gridlines td {
+  padding: 0.3rem 0.5rem !important;
+  word-break: break-word !important;
+}
+::ng-deep .p-datatable.p-datatable-gridlines th {
+  justify-content: space-between;
+}
+::ng-deep .p-datatable.p-datatable-gridlines th.hide-sort:focus {
+  box-shadow: none;
+  outline: none;
+}
+::ng-deep .p-datatable.p-datatable-gridlines th.hide-sort {
+  cursor: unset;
+}
+::ng-deep .p-datatable.p-datatable-gridlines .action {
+  min-width: 350px;
+}
+::ng-deep .side-menu-advanced-actions {
+  width: 300px;
+  transition: 0.5s;
+  position: absolute;
+  left: -380px;
+  background-color: white;
+  z-index: 200;
+  height: 70%;
+  padding: 1rem;
+  border-radius: 9px;
+  box-shadow: 0 0 21px 0 #000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+::ng-deep .side-menu-advanced-actions .p-field-checkbox label {
+  margin: 0 1rem;
+}
+::ng-deep .active .side-menu-advanced-actions {
+  left: 7px;
+}
+::ng-deep .p-overlaypanel {
+  min-width: 300px;
+}
+.check-box-header {
+  width: 2.5rem;
+  min-width: 33px !important;
+  justify-content: center;
+}
+.group-row {
+  cursor: pointer;
+}
+.group-row td {
+  padding: 1rem !important;
+}
+.approved-chip {
+  background-color: #00548d;
+  color: white;
+  padding: 4px 1rem;
+  border-radius: 16px;
+}
+.approved-chip.reject {
+  background-color: #860c0c;
+}
+.action-cell button {
+  margin-inline-end: 0.5rem;
+}
+.action-cell .btn:hover {
+  background-color: #00548d;
+  color: white;
+}
+.action-cell .btn-outline-primary {
+  padding: 3px 1rem;
+  border-color: #00548d;
+  color: #00548d;
+}
+.action-cell .v-hidden {
+  visibility: hidden;
+}

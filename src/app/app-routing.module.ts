@@ -19,6 +19,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'country',
+    loadChildren: () =>
+      import('src/app/modules/country/country.module').then(
+        (m) => m.CountryModule
+      ),
+  },
+  {
     path: 'users',
     loadChildren: () =>
       import('src/app/modules/users/users.module').then((m) => m.UsersModule),
