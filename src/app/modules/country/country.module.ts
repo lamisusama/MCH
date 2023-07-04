@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CountryListComponent } from './country-list/country-list.component';
-import { CountryAddEditComponent } from './country-add-edit/country-add-edit.component';
+import { CountryListComponent } from './components/country-list/country-list.component';
+import { CountryAddEditComponent } from './components/country-add-edit/country-add-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { IconsModule } from 'src/app/icons/icons.module';
+import { CountryRoutingModule } from './country-routing.module';
 
 
 
@@ -11,7 +15,8 @@ import { CountryAddEditComponent } from './country-add-edit/country-add-edit.com
     CountryAddEditComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, CountryRoutingModule, IconsModule, TableModule,FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CountryModule { }

@@ -1,11 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from 'src/app/sharedFeatures/services/auth-guard.service';
-import { CountryListComponent } from './country-list/country-list.component';
-import { CountryAddEditComponent } from './country-add-edit/country-add-edit.component';
+import { CountryListComponent } from './components/country-list/country-list.component';
+import { CountryAddEditComponent } from './components/country-add-edit/country-add-edit.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/regions/list' },
+  { path: '', pathMatch: 'full', redirectTo: '/country/list' },
   {
     path: 'list',
     component: CountryListComponent,
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RegionsRoutingModule {}
+export class CountryRoutingModule {}
